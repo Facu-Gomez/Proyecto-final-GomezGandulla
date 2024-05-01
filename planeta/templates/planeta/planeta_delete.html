@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+
+{% block titulo %}
+    Borrar planeta
+{%endblock titulo%}
+
+{%block contenido%}
+
+<p class="fs-5 fst-italic ">
+    ¿Confirma eliminar "{{planeta}}"?
+</p>
+
+    <form action="" method="post" class="d-block ">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit"> Confirmar </button>
+    </form>
+
+    <div class="fs-3 ">
+        <a href="{% url 'planeta:home' %}">Volver</a>
+    </div>
+    
+
+{%endblock contenido%}

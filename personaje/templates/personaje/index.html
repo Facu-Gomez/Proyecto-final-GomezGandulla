@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    <h1 class="fs-3 mb-4">Personajes</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="row mb-4">
+        <div class="col">
+            <a href="{% url 'personaje:personaje_create' %}" class="btn btn-primary">Cargar Personaje</a>
+        </div>
+        <div class="col">
+            <a href="{% url 'personaje:personaje_list' %}" class="btn btn-secondary">Ver Todas los personajes</a>
+        </div>
+    </div>
+{% endblock contenido %}

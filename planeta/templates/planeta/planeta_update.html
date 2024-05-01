@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+
+{% block titulo %}
+    Editar planeta:
+{%endblock titulo%}
+
+{%block contenido%}
+
+    <form action="" method="post" class="d-block ">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+
+        <button type="submit"> Guardar </button>
+    </form>
+
+    <div class="fs-3 ">
+        <a href="{% url 'planeta:planeta_list' %}">Volver</a>
+    </div>
+    
+
+{%endblock contenido%}

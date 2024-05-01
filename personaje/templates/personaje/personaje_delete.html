@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+
+{% block titulo %}
+    <h1 class="fs-3">Borrar personaje</h1>
+{%endblock titulo%}
+
+{%block contenido%}
+
+<p class="fs-5 fst-italic ">
+    ¿Confirma eliminar "{{personaje}}"?
+</p>
+
+    <form action="" method="post" class="d-block ">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit"> Confirmar </button>
+    </form>
+
+    <div class="fs-3 ">
+        <a href="{% url 'personaje:home' %}">Volver</a>
+    </div>
+    
+
+{%endblock contenido%}

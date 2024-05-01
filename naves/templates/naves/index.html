@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    <h1 class="fs-3 mb-4">Naves</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+    <div class="row mb-4">
+        <div class="col">
+            <a href="{% url 'naves:naves_create' %}" class="btn btn-primary">Cargar Nave</a>
+        </div>
+        <div class="col">
+            <a href="{% url 'naves:naves_list' %}" class="btn btn-secondary">Ver Todas las Naves</a>
+        </div>
+    </div>
+{% endblock contenido %}

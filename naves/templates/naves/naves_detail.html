@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+    Detalle de nave
+{% endblock titulo %}
+{% block contenido %}
+
+<ul>
+    <li>Nombre: {{object.nombre}}</li>
+    <li>Descripcion: {{object.descripcion}}</li>
+</ul>
+
+<div class="fs-3 ">
+    <a href="{% url 'naves:naves_list' %}">Volver</a>
+</div>
+
+{% endblock contenido %}

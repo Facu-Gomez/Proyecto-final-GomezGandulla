@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+
+{% block titulo %}
+    Borrar naves
+{%endblock titulo%}
+
+{%block contenido%}
+
+<p class="fs-5 fst-italic ">
+    ¿Confirma eliminar "{{nave}}"?
+</p>
+
+    <form action="" method="post" class="d-block ">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit"> Confirmar </button>
+    </form>
+
+    <div class="fs-3 ">
+        <a href="{% url 'naves:home' %}">Volver</a>
+    </div>
+    
+
+{%endblock contenido%}
