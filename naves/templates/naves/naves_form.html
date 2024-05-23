@@ -1,23 +1,32 @@
 {% extends 'core/base.html'%}
 
 {% block titulo %}
-    Creacion de nave:
+ 
 {%endblock titulo%}
 
 {%block contenido%}
-
-    <form action="" method="post" class="d-block ">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-
-        <button type="submit"> Guardar </button>
-    </form>
-
-    <div class="fs-3 ">
-        <a href="{% url 'naves:home' %}">Volver</a>
+<h1 class="fs-1 text-center mt-4">
+   Formulario para nave
+</h1>
+<div class="contenedor">
+    <div class="main">
+        <div class="login">
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{form.as_p}}
+                </table>
+        
+                <button type="submit"> Guardar </button>
+            </form>
+        
+            <div class="fs-3">
+                <a href="{% url 'naves:home' %}" class="btn-form text-decoration-none text-center ">Volver</a>
+            </div>
+        </div>
     </div>
+</div>
+
     
 
 {%endblock contenido%}

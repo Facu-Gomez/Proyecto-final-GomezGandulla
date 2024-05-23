@@ -20,7 +20,13 @@
                     <p>{{ planeta.descripcion }}</p>
                 </div>
                 <div class="card-body">
-                    <li class="list-group-item"><a href="{% url 'planeta:planeta_detail' planeta.id %}" class="link-light ">Detalle</a><a href="{% url 'planeta:planeta_update' planeta.id %}">🛠</a><a href="{% url 'planeta:planeta_delete' planeta.id %}">🗑</a></li>
+                    <li class="list-group-item">
+                        <a href="{% url 'planeta:planeta_detail' planeta.id %}" class="link-light ">Detalle</a>
+                        {%if user.is_superuser%}
+                            <a href="{% url 'planeta:planeta_update' planeta.id %}">🛠</a>
+                            <a href="{% url 'planeta:planeta_delete' planeta.id %}">🗑</a>
+                        {%endif%}
+                    </li>
                 </div>
             </div>
         </div>

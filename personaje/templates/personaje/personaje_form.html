@@ -1,23 +1,32 @@
 {% extends 'core/base.html'%}
 
 {% block titulo %}
-    Creacion de personaje:
+    
 {%endblock titulo%}
 
 {%block contenido%}
-
-    <form action="" method="post" class="d-block ">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-
-        <button type="submit"> Guardar </button>
-    </form>
-
-    <div class="fs-3 ">
-        <a href="{% url 'personaje:home' %}">Volver</a>
+<h1 class="fs-1 text-center mt-4">
+    Creacion de personaje
+</h1>
+<div class="contenedor">
+    <div class="main">
+        <div class="login">
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{form.as_p}}
+                </table>
+        
+                <button type="submit"> Guardar </button>
+            </form>
+        
+            <div class="fs-3 ">
+                <a href="{% url 'personaje:home' %}"  class="btn btn-secondary btn-form">Volver</a>
+            </div>
+        </div>
     </div>
+</div>
+
     
 
 {%endblock contenido%}

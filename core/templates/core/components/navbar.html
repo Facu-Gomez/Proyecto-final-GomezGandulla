@@ -1,13 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#page-top">Star Wars</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="{% url 'core:home'%}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'naves:home' %}">Naves</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'planeta:home' %}">Planetas</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'personaje:home' %}">Personajes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:home' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'core:aboutme' %}">Sobre Mi</a></li>
+                {% if user.is_superuser %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'naves:home' %}">Naves</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'personaje:home' %}">Personajes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'planeta:home' %}">Planetas</a></li>
+                    <li class="nav-item d-flex ">
+                        {% if user.profile_pic %}
+                            <img src="{{ user.profile_pic.url }}" alt="Profile Pic" class="profile-pic">
+                        {% endif %}
+                        <a class="nav-link text-capitalize">{{ user.username }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'core:edit_profile' %}">Editar Perfil</a></li>
+                    <form action="{% url 'core:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger w-100 ">Cerrar Sesion</button>
+                    </form>
+                {% elif user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'naves:naves_list' %}">Naves</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'personaje:personaje_list' %}">Personajes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'planeta:planeta_list' %}">Planetas</a></li>
+                    <li class="nav-item d-flex align-items-center">
+                        {% if user.profile_pic %}
+                            <img src="{{ user.profile_pic.url }}" alt="Profile Pic" class="profile-pic">
+                        {% endif %}
+                        <a class="nav-link text-capitalize">{{ user.username }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'core:edit_profile' %}">Editar Perfil</a></li>
+                    <form action="{% url 'core:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger w-100 ">Cerrar Sesion</button>
+                    </form>
+                {% elif not user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Iniciar Sesion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'core:register' %}">Registrarse</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

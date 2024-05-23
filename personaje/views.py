@@ -5,6 +5,7 @@ from django.views.generic import (ListView, DetailView, DeleteView, CreateView, 
 from django.urls import reverse_lazy
 from django.http import HttpResponseNotFound
 
+
 def home(request):
     return render(request, "personaje/index.html")
 
@@ -54,7 +55,6 @@ def personaje_create(request):
                 form.save()
                 return redirect("personaje:home")
             else:
-                # Proporciona un mensaje de error al usuario si el planeta no existe
                 return HttpResponseNotFound("El planeta seleccionado no existe.")
     else:
         form = forms.PersonajeForm()

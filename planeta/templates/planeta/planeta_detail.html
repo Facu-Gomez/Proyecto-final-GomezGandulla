@@ -1,16 +1,23 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-    Detalle de planeta
+
 {% endblock titulo %}
 {% block contenido %}
-
-<ul>
-    <li>Nombre: {{object.nombre}}</li>
-    <li>Descripcion: {{object.descripcion}}</li>
-</ul>
-
-<div class="fs-3 ">
-    <a href="{% url 'planeta:planeta_list' %}">Volver</a>
+<h1 class="fs-1 text-center mt-4">
+    Detalles del planeta
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">Nombre: {{ object.nombre }}</li>
+                <li class="list-group-item">Descripcion: {{ object.descripcion }}</li>
+            </ul>
+            <div class="mt-4">
+                <a href="{% url 'planeta:planeta_list' %}" class="btn btn-primary">Volver</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock contenido %}

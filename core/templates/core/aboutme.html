@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4 text-center mb-4">
+                Bienvenido a mi página de Star Wars
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 text-center mb-4">
+            <img class="img-fluid rounded" src="{% static 'core/assets/img/portfolio/fullsize/perfil.png' %}" alt="Perfil" />
+        </div>
+        <div class="col-lg-8">
+            <div class="texto">
+                <p class="lead">
+                    Mi nombre es Facundo, tengo 19 años y soy de CABA. Desde chiquito me interesó mucho la programación, por lo que me puse a estudiar en 2020, cuando tan solo tenía 16 años.
+                </p>
+                <p class="lead">
+                    Estudié HTML y CSS en la UTN para luego complementar esos conocimientos básicos con Javascript. En 2022 empecé la facultad en la Escuela Da Vinci estudiando Diseño y desarrollo web, cuya cursada ya fue terminada. Únicamente me falta entregar la tesis para recibirme.
+                </p>
+                <p class="lead">
+                    Esta es mi primera experiencia en Coderhouse y decidí desarrollar un proyecto basado en algo que a mí me encanta: el mundo de Star Wars.
+                    Espero que la página les haya agradado. <br> ¡Saludos!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

@@ -1,22 +1,31 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-    Detalle de personaje
+
 {% endblock titulo %}
 {% block contenido %}
-
-<ul>
-    <li>Nombre: {{object.nombre}}</li>
-    <li>Descripcion: {{object.apellido}}</li>
-    <li>{{ personaje.nacimiento }}</li>
-    {% if personaje.planeta_origen_id %}
-        <li>{{ personaje.planeta_origen_id }}</li>
-    {% else %}
-        <li>No registra planeta de origen.</li>
-    {% endif %}
-</ul>
-
-<div class="fs-3 ">
-    <a href="{% url 'personaje:personaje_list' %}">Volver</a>
+<h1 class="fs-1 text-center mt-4">
+    Detalles del personaje
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">Nombre: {{object.nombre}}</li>
+                <li class="list-group-item">Apellido: {{object.apellido}}</li>
+                <li class="list-group-item">Nacimiento: {{ object.nacimiento }}</li>
+                <li class="list-group-item">
+                    {% if object.planeta_origen_id %}
+                        Planeta de origen: {{ object.planeta_origen_id }}
+                    {% else %}
+                        No registra planeta de origen.
+                    {% endif %}
+                </li>
+            </ul>
+            <div class="mt-4">
+                <a href="{% url 'personaje:personaje_list' %}" class="btn btn-primary">Volver</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock contenido %}

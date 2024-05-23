@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from . import models, forms
 from django.db.models import Q
@@ -68,7 +69,7 @@ class PlanetaDetail(DetailView):
     model = models.Planeta
     context_object_name= "planeta"
 
-class PlanetaDelete(DeleteView):
+class PlanetaDelete(LoginRequiredMixin, DeleteView):
     model = models.Planeta
     template_name = "planeta/planeta_delete.html"
     success_url = reverse_lazy("planeta:planeta_list")

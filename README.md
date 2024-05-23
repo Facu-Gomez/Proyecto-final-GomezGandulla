@@ -23,3 +23,12 @@ Este proyecto es una aplicación web que proporciona información sobre naves, p
 3. Utiliza las opciones de CRUD para crear, leer, actualizar y eliminar registros según sea necesario.
 4. Utiliza la función de búsqueda para encontrar información específica en la base de datos.
 
+## Usuarios
+Superusuario
+->Nombre: facum
+->Password: w4s5x6e7
+
+Usuario default
+->Nombre: maul
+->Password: w4s5x6e7
+

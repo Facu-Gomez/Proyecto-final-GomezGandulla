@@ -5,5 +5,10 @@
 {% endblock  %}
 
 {% block contenido %}
-
+{% if user.is_authenticated %}
+    {{mensaje}}
+    <h1 class="fs-1 text-center mt-4">
+        Bienvenido {{user.username}}
+    </h1>
+{% endif %}
 {% endblock contenido %}
